@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+  <head>
+    <title>Technical MVC Blog</title>
+  </head>
+  <body>
+    <h1>Technical Blogs</h1>
+    <main id="posts">
+      <post th:each="post : ${posts}">
+        <h2 th:text="${post.getTitle()}"></h2>
+        <em>Posted on :: </em> <span th:text="${post.getCreatedDate()}"></span>
+        <p th:text="${post.getBody()}"></p>
+      </post>
+    </main>
+  </body>
+</html>
