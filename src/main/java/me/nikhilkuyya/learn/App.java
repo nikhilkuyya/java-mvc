@@ -10,7 +10,6 @@ import org.springframework.context.annotation.ComponentScan;
  *
  */
 @SpringBootApplication
-@ServletComponentScan
 @ComponentScan
 public class App {
 

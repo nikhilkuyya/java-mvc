@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+  <head th:fragment="site-head">
+    <title>Technical MVC Blog</title>
+  </head>
+  <body>
+    <header th:fragment="logged-out" th:remove="tag">
+      <header class="layout-buttons">
+        <a href="users/login.html" th:href="@{/users/login}">Login</a>
+        <span> | </span>
+        <a href="users/registration.html" th:href="@{/users/registration}">
+          Registration
+        </a>
+      </header>
+    </header>
+  </body>
+</html>
