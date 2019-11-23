@@ -11,19 +11,22 @@ public class UserController {
 
     @RequestMapping("users/login")
     public String login() {
-        System.out.println("Get the login");
         return "users/login";
     }
 
     @RequestMapping(value = "users/login", method = RequestMethod.POST)
     public String login(User user) {
-        System.out.println("Post the login" + user.getUserName() + " " + user.getPassword());
         return "redirect:/posts";
     }
 
     @RequestMapping("users/registration")
     public String registration() {
         return "users/registration";
+    }
+
+    @RequestMapping(value = "users/registration", method = RequestMethod.POST)
+    public String registration(User user) {
+        return "redirect:/users/login";
     }
 
     @RequestMapping(value = "posts", method = RequestMethod.POST)

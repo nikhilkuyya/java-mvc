@@ -8,11 +8,21 @@
   </head>
   <body>
     <header th:replace="layout :: logged-out"></header>
-    <form method="post" th:object="${User}">
+    <form method="post" th:object="${user}">
       <label for="userName">UserName</label>
-      <input type="text" placeholder="Enter the UserName" id="userName" />
+      <input
+        type="text"
+        placeholder="Enter the UserName"
+        id="userName"
+        name="userName"
+      />
       <label for="passWord">Password</label>
-      <input type="password" placeholder="Enter the Password" id="password" />
+      <input
+        type="password"
+        placeholder="Enter the Password"
+        id="password"
+        name="password"
+      />
       <input type="submit" value="Login" />
     </form>
   </body>
