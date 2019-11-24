@@ -29,7 +29,7 @@ public class UserController {
         return "redirect:/users/login";
     }
 
-    @RequestMapping(value = "posts", method = RequestMethod.POST)
+    @RequestMapping(value = "users/logout", method = RequestMethod.POST)
     public String redirectLogout() {
         return "redirect:/";
     }

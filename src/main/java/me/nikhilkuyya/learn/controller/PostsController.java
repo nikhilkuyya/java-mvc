@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import me.nikhilkuyya.learn.model.Post;
 import me.nikhilkuyya.learn.service.PostService;
@@ -22,6 +21,11 @@ public class PostsController {
         List<Post> posts = this.postService.getAllPosts().subList(0, 1);
         model.addAttribute("posts", posts);
         return "posts";
+    }
+
+    @RequestMapping("post/create")
+    public String createPost() {
+        return "create-post";
     }
 
 }

@@ -8,19 +8,33 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
+import javax.persistence.TypedQuery;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import me.nikhilkuyya.learn.model.Post;
+import me.nikhilkuyya.learn.repository.PostRepository;
 
 @Service
 public class PostService {
+
+    @Autowired
+    private PostRepository postRepository;
+
     public PostService() {
         System.out.println("*** PostService ***");
     }
 
     public List<Post> getAllPosts() {
+        return this.postRepository.fetchPosts();
+    }
+
+    public List<Post> getAllPostsWithoutJPI() {
 
         List<Post> posts = new ArrayList<>();
-
         try {
             Class.forName("org.postgresql.Driver");
             Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5433/technical-blog",
@@ -40,4 +54,5 @@ public class PostService {
         }
         return posts;
     }
+
 }

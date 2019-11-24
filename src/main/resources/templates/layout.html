@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
   <head th:fragment="site-head">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Technical MVC Blog</title>
   </head>
   <body>
@@ -14,8 +17,8 @@
       </header>
     </header>
     <header th:fragment="logged-in" th:remove="tag">
-      <header class="logged-out" th:action="@{users/logout}">
-        <form method="post">
+      <header class="logged-out">
+        <form method="post" th:action="@{users/logout}">
           <input type="submit" value="Logout" />
         </form>
       </header>
