@@ -22,12 +22,12 @@ public class PostsController {
     public String getUserPosts(Model model) {
         List<Post> posts = this.postService.getAllPosts();
         model.addAttribute("posts", posts);
-        return "posts";
+        return "post/index";
     }
 
     @RequestMapping("/post/newPost")
     public String getCreatePostView() {
-        return "create-post";
+        return "post/create";
     }
 
     @RequestMapping(value = "/post/create", method = RequestMethod.POST)
