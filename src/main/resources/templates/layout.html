@@ -9,9 +9,15 @@
   <body>
     <header th:fragment="logged-out" th:remove="tag">
       <header class="layout-buttons">
-        <a href="users/login.html" th:href="@{users/login}">Login</a>
+        <a href="users/login.html" th:href="@{users/login}" tabindex="0"
+          >Login</a
+        >
         <span> | </span>
-        <a href="users/registration.html" th:href="@{users/registration}">
+        <a
+          href="users/registration.html"
+          th:href="@{users/registration}"
+          tabindex="0"
+        >
           Registration
         </a>
       </header>

@@ -13,16 +13,16 @@ import javax.persistence.Table;
 @Table(name = "post")
 public class Post {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
+
     @Column(name = "title")
     private String title;
 
     @Column(name = "body")
     private String body;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private String id;
 
     @Column(name = "createdDate")
     private Date createdDate;
@@ -31,12 +31,8 @@ public class Post {
         return title;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public Date getCreatedDate() {

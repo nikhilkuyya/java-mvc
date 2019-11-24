@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="htttp://thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org">
   <head th:replace="layout :: site-head">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
   <body>
     <header th:replace="layout :: logged-in"></header>
 
-    <a href="create-post.html" th:href="@{post/create}">Create Post</a>
+    <a href="/create-post.html" th:href="@{post/newPost}">Create Post</a>
 
     <h1>Welcome User. These are your posts</h1>
     <main id="posts">

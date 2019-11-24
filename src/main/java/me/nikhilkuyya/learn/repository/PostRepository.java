@@ -2,6 +2,7 @@ package me.nikhilkuyya.learn.repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceUnit;
 import javax.persistence.TypedQuery;
 
@@ -21,6 +22,20 @@ public class PostRepository {
         TypedQuery<Post> query = em.createQuery("select p from Post p", Post.class);
         List<Post> posts = query.getResultList();
         return posts;
+    }
+
+    public Post createPost(Post newPost) {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        try {
+            transaction.begin();
+            em.persist(newPost);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+        }
+        return newPost;
     }
 
 }
