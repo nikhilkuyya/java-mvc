@@ -1,5 +1,9 @@
 package me.nikhilkuyya.learn.service;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,29 +18,26 @@ public class PostService {
     }
 
     public List<Post> getAllPosts() {
+
         List<Post> posts = new ArrayList<>();
 
-        Post post1 = new Post();
-        post1.setTitle("Title 1");
-        post1.setBody("Body 1");
-        post1.setId("1");
-        post1.setCreatedDate(new Date());
-        posts.add(post1);
-
-        Post post2 = new Post();
-        post2.setTitle("Title 2");
-        post2.setBody("Body 2");
-        post2.setId("2");
-        post2.setCreatedDate(new Date());
-        posts.add(post2);
-
-        Post post3 = new Post();
-        post3.setTitle("Title 3");
-        post3.setBody("Body 3");
-        post3.setId("3");
-        post3.setCreatedDate(new Date());
-
-        posts.add(post3);
+        try {
+            Class.forName("org.postgresql.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5433/technical-blog",
+                    "postgres", "nikhilKuyya");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from post");
+            while (resultSet.next()) {
+                Post post1 = new Post();
+                post1.setTitle(resultSet.getString("title"));
+                post1.setBody(resultSet.getString("body"));
+                post1.setId(resultSet.getString("id"));
+                post1.setCreatedDate(new Date());
+                posts.add(post1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return posts;
     }
 }
