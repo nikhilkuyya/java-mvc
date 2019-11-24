@@ -21,6 +21,21 @@
         <div>
           <p th:text="${post.getBody()}"></p>
         </div>
+        <div>
+          <a
+            href="./edit.html"
+            th:href="@{/post/edit(
+              postId=${post.getId()}
+            )}"
+            >Edit</a
+          >
+          <form
+            th:method="delete"
+            th:action="@{/post/delete(postId=${post.getId()})}"
+          >
+            <input type="button" value="Delete" />
+          </form>
+        </div>
       </post>
     </main>
   </body>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+  <header th:replace="layout :: site-head"></header>
+  <body>
+    <head th:replace="layout :: logged-in"></head>
+    <h1>Edit Post</h1>
+    <form
+      th:method="POST"
+      th:object="${updatedPost}"
+      th:action="@{/post/update(postId=${post.id})}"
+    >
+      <div>
+        <label for="postTitle"> Title :</label>
+        <input
+          type="text"
+          tabindex="0"
+          id="postTitle"
+          name="title"
+          th:value="@{${post.title}}"
+        />
+        <input
+          readonly
+          type="text"
+          id="postTitle2"
+          th:value="@{${post.title}}"
+        />
+      </div>
+      <div>
+        <label for="postBody">Body :</label>
+        <textarea
+          th:text="@{${post.body}}"
+          id="postBody"
+          name="body"
+        ></textarea>
+      </div>
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

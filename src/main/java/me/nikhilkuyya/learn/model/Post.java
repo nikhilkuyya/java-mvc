@@ -35,6 +35,10 @@ public class Post {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public Date getCreatedDate() {
         return createdDate;
     }

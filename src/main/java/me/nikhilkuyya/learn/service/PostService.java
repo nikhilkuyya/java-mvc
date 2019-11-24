@@ -31,4 +31,12 @@ public class PostService {
         this.postRepository.createPost(post);
     }
 
+    public Post getPost(Integer postId) {
+        return this.postRepository.getPost(postId);
+    }
+
+    public void updatePost(Post updatedPost) {
+        this.postRepository.updatePost(updatedPost);
+    }
+
 }
