@@ -54,7 +54,6 @@ public class PostRepository {
 
     public Post getPost(Integer postId) {
         EntityManager em = emf.createEntityManager();
-
         return em.find(Post.class, postId);
     }
 }

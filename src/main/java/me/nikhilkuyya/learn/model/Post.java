@@ -24,7 +24,7 @@ public class Post {
     @Column(name = "body")
     private String body;
 
-    @Column(name = "createdDate")
+    @Column(name = "created_date")
     private Date createdDate;
 
     public String getTitle() {
